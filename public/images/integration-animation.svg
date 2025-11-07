@@ -1,0 +1,52 @@
+<svg width="300" height="200" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g opacity="0.9">
+    <!-- Platform Layers -->
+    <rect x="70" y="40" width="160" height="30" rx="5" fill="#00A3B4" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite" />
+    </rect>
+    <rect x="70" y="85" width="160" height="30" rx="5" fill="#00A3B4" opacity="0.7">
+      <animate attributeName="opacity" values="0.7;0.9;0.7" dur="3s" repeatCount="indefinite" />
+    </rect>
+    <rect x="70" y="130" width="160" height="30" rx="5" fill="#00A3B4" opacity="0.6">
+      <animate attributeName="opacity" values="0.6;0.8;0.6" dur="3s" repeatCount="indefinite" />
+    </rect>
+    
+    <!-- Layer Labels -->
+    <text x="150" y="60" text-anchor="middle" fill="white" font-family="Arial" font-size="12">Discovery</text>
+    <text x="150" y="105" text-anchor="middle" fill="white" font-family="Arial" font-size="12">Connection</text>
+    <text x="150" y="150" text-anchor="middle" fill="white" font-family="Arial" font-size="12">Implementation</text>
+    
+    <!-- Connecting Lines -->
+    <line x1="150" y1="70" x2="150" y2="85" stroke="white" stroke-width="2" stroke-dasharray="4 4">
+      <animate attributeName="stroke-dashoffset" from="0" to="16" dur="2s" repeatCount="indefinite" />
+    </line>
+    <line x1="150" y1="115" x2="150" y2="130" stroke="white" stroke-width="2" stroke-dasharray="4 4">
+      <animate attributeName="stroke-dashoffset" from="0" to="16" dur="2s" repeatCount="indefinite" />
+    </line>
+    
+    <!-- Data Flow Animation -->
+    <circle cx="150" cy="77" r="4" fill="white">
+      <animate attributeName="cy" values="70;85" dur="1s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="1;0" dur="1s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="150" cy="122" r="4" fill="white">
+      <animate attributeName="cy" values="115;130" dur="1s" begin="0.5s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="1;0" dur="1s" begin="0.5s" repeatCount="indefinite" />
+    </circle>
+    
+    <!-- Side Connectors -->
+    <circle cx="50" cy="55" r="8" fill="#0D9B3F" />
+    <circle cx="50" cy="100" r="8" fill="#2152CC" />
+    <circle cx="50" cy="145" r="8" fill="#A239CA" />
+    <line x1="50" y1="55" x2="70" y2="55" stroke="#0D9B3F" stroke-width="2" />
+    <line x1="50" y1="100" x2="70" y2="100" stroke="#2152CC" stroke-width="2" />
+    <line x1="50" y1="145" x2="70" y2="145" stroke="#A239CA" stroke-width="2" />
+    
+    <circle cx="250" cy="55" r="8" fill="#0D9B3F" />
+    <circle cx="250" cy="100" r="8" fill="#2152CC" />
+    <circle cx="250" cy="145" r="8" fill="#A239CA" />
+    <line x1="230" y1="55" x2="250" y2="55" stroke="#0D9B3F" stroke-width="2" />
+    <line x1="230" y1="100" x2="250" y2="100" stroke="#2152CC" stroke-width="2" />
+    <line x1="230" y1="145" x2="250" y2="145" stroke="#A239CA" stroke-width="2" />
+  </g>
+</svg>

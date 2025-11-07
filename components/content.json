@@ -1,0 +1,164 @@
+{
+  "sections": [
+    {
+      "id": 0,
+      "title": "KYC",
+      "steps": [
+        {
+          "id": 1,
+          "questions": [
+            {
+              "type": "SingleSelection",
+              "props": {
+                "question": "Are you a buyer or a seller",
+                "options": [
+                  "Buyer",
+                  "Seller"
+                ],
+                "type": "MultiSelection"
+              },
+              "alias": "buyerOrSeller"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "questions": [
+            {
+              "type": "DetailForm",
+              "props": {},
+              "alias": "detailForm"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "questions": [
+            {
+              "type": "MultiSelection",
+              "props": {
+                "question": "Focus industry",
+                "options": [
+                  "Automotive",
+                  "FLights",
+                  "Idk"
+                ]
+              },
+              "alias": "focusIndustry"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "questions": [
+            {
+              "type": "SlidingScale",
+              "props": {
+                "question": "How likely are you to recommend to a friend?",
+                "options": [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5"
+                ]
+              },
+              "alias": "likelyToRecommend"
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "questions": [
+            {
+              "type": "EmotiveScale",
+              "props": {
+                "question": "Emottttttttive scaling question",
+                "options": []
+              },
+              "alias": "emotionScaleQuestion"
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "questions": [
+            {
+              "type": "SignalScale",
+              "props": {
+                "question": "Who needs wifi when you have signal",
+                "options": [
+                  "We’re just starting to explore tech solutions",
+                  "We use some tech tools and are actively improving our processes",
+                  "Technology is seamlessly integrated into our operations"
+                ]
+              },
+              "alias": "SignalTesting"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "title": "New Section",
+      "steps": [
+        {
+          "id": 1,
+          "questions": [
+            {
+              "type": "SingleSelection",
+              "props": {
+                "question": "What is the size of your company?",
+                "options": [
+                  "Small",
+                  "Medium",
+                  "Large"
+                ]
+              },
+              "alias": "companySize"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "questions": [
+            {
+              "type": "SingleSelection",
+              "props": {
+                "question": "How long has your company been offering climate tech solutions?",
+                "options": [
+                  "Under one year",
+                  "One to three years",
+                  "Three to five years",
+                  "Over five years"
+                ]
+              },
+              "alias": "companyExperience"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "questions": [
+            {
+              "type": "MultiSelection",
+              "props": {
+                "question": "What are your primary climate tech offerings?",
+                "options": [
+                  "Software Solutions",
+                  "Hardware Products",
+                  "Energy Solutions",
+                  "Consulting Services",
+                  "Carbon Management",
+                  "Sustainability Analytics"
+                ]
+              },
+              "alias": "techOfferings"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

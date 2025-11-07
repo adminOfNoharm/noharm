@@ -1,0 +1,43 @@
+{
+  "toolInfo": {
+    "name": "Carbon Tracker Pro",
+    "description": "Advanced carbon footprint tracking and reporting solution for businesses of all sizes. Our platform provides comprehensive emissions monitoring, reporting, and reduction recommendations.",
+    "usp": "Real-time emissions monitoring with AI-powered insights and automated reporting capabilities",
+    "category": "Carbon Management",
+    "inProduction": true
+  },
+  "certificates": [
+    {
+      "id": "cert1",
+      "name": "ISO 14064-1:2018",
+      "issuer": "International Organization for Standardization",
+      "dateIssued": "2023-01-15",
+      "expiryDate": "2024-01-15",
+      "status": "active"
+    },
+    {
+      "id": "cert2",
+      "name": "GHG Protocol Corporate Standard",
+      "issuer": "World Resources Institute",
+      "dateIssued": "2023-03-20",
+      "expiryDate": "2024-03-20",
+      "status": "active"
+    },
+    {
+      "id": "cert3",
+      "name": "Science Based Targets Initiative",
+      "issuer": "CDP, UN Global Compact, WRI, and WWF",
+      "dateIssued": "2023-06-10",
+      "expiryDate": "2024-06-10",
+      "status": "active"
+    },
+    {
+      "id": "cert4",
+      "name": "Carbon Trust Standard",
+      "issuer": "Carbon Trust",
+      "dateIssued": "2023-02-01",
+      "expiryDate": "2023-12-31",
+      "status": "pending"
+    }
+  ]
+} 

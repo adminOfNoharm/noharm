@@ -1,0 +1,82 @@
+{
+  "name": "Basic Onboarding",
+  "description": "A simple onboarding flow with basic user information and preferences.",
+  "sections": [
+    {
+      "id": 0,
+      "name": "Personal Information",
+      "color": "#4B9CD3",
+      "order": 0,
+      "steps": [
+        {
+          "id": 1,
+          "order": 0,
+          "questions": [
+            {
+              "type": "DetailForm",
+              "alias": "basicInfo",
+              "props": {
+                "fields": [
+                  {
+                    "id": "firstName",
+                    "type": "text",
+                    "alias": "firstName",
+                    "label": "First Name",
+                    "required": true,
+                    "placeholder": "Enter your first name"
+                  },
+                  {
+                    "id": "lastName",
+                    "type": "text",
+                    "label": "Last Name",
+                    "required": true,
+                    "placeholder": "Enter your last name"
+                  },
+                  {
+                    "id": "email",
+                    "type": "email",
+                    "alias": "email",
+                    "label": "Email",
+                    "required": true,
+                    "placeholder": "Enter your email"
+                  }
+                ],
+                "question": "Please provide your basic information",
+                "required": true
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "Preferences",
+      "color": "#6B7280",
+      "order": 1,
+      "steps": [
+        {
+          "id": 1,
+          "order": 0,
+          "questions": [
+            {
+              "type": "MultiSelection",
+              "alias": "interests",
+              "props": {
+                "options": [
+                  "Technology",
+                  "Business",
+                  "Science",
+                  "Arts"
+                ],
+                "question": "What are your interests?",
+                "minSelections": 1,
+                "maxSelections": 3
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+} 

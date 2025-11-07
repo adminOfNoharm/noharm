@@ -1,0 +1,51 @@
+<svg width="300" height="200" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g opacity="0.9">
+    <!-- People Icons -->
+    <circle cx="60" cy="80" r="20" fill="#A239CA" opacity="0.8">
+      <animate attributeName="r" values="20;22;20" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="150" cy="60" r="20" fill="#0D9B3F" opacity="0.8">
+      <animate attributeName="r" values="20;22;20" dur="2.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="240" cy="80" r="20" fill="#2152CC" opacity="0.8">
+      <animate attributeName="r" values="20;22;20" dur="2.2s" repeatCount="indefinite" />
+    </circle>
+    
+    <!-- Person Silhouettes -->
+    <path d="M60 70V90M50 80H70" stroke="white" stroke-width="2" />
+    <path d="M150 50V70M140 60H160" stroke="white" stroke-width="2" />
+    <path d="M240 70V90M230 80H250" stroke="white" stroke-width="2" />
+    
+    <!-- Central Resource Hub -->
+    <circle cx="150" cy="130" r="25" fill="#A239CA" opacity="0.7">
+      <animate attributeName="r" values="25;28;25" dur="3s" repeatCount="indefinite" />
+    </circle>
+    
+    <!-- Connection Lines -->
+    <line x1="60" y1="80" x2="150" y2="130" stroke="#A239CA" stroke-width="2" stroke-dasharray="4 4">
+      <animate attributeName="stroke-dashoffset" from="0" to="16" dur="2s" repeatCount="indefinite" />
+    </line>
+    <line x1="150" y1="60" x2="150" y2="130" stroke="#0D9B3F" stroke-width="2" stroke-dasharray="4 4">
+      <animate attributeName="stroke-dashoffset" from="0" to="16" dur="2s" repeatCount="indefinite" />
+    </line>
+    <line x1="240" y1="80" x2="150" y2="130" stroke="#2152CC" stroke-width="2" stroke-dasharray="4 4">
+      <animate attributeName="stroke-dashoffset" from="0" to="16" dur="2s" repeatCount="indefinite" />
+    </line>
+    
+    <!-- Resource Sharing Animation -->
+    <circle cx="105" cy="105" r="5" fill="white">
+      <animate attributeName="cx" values="60;150" dur="2s" repeatCount="indefinite" />
+      <animate attributeName="cy" values="80;130" dur="2s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="150" cy="95" r="5" fill="white">
+      <animate attributeName="cy" values="60;130" dur="1.5s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0;1;0" dur="1.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="195" cy="105" r="5" fill="white">
+      <animate attributeName="cx" values="240;150" dur="2.5s" repeatCount="indefinite" />
+      <animate attributeName="cy" values="80;130" dur="2.5s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0;1;0" dur="2.5s" repeatCount="indefinite" />
+    </circle>
+  </g>
+</svg>

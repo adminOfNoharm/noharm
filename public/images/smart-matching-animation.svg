@@ -1,0 +1,43 @@
+<svg width="300" height="200" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g opacity="0.9">
+    <!-- Nodes -->
+    <circle cx="60" cy="60" r="15" fill="#0D9B3F" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="150" cy="40" r="12" fill="#2152CC" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="2.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="240" cy="70" r="15" fill="#A239CA" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="3.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="80" cy="150" r="12" fill="#2152CC" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="200" cy="140" r="15" fill="#0D9B3F" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="2.8s" repeatCount="indefinite" />
+    </circle>
+    
+    <!-- Connecting Lines -->
+    <line x1="60" y1="60" x2="150" y2="40" stroke="#0D9B3F" stroke-width="2" stroke-dasharray="4 4">
+      <animate attributeName="stroke-dashoffset" from="0" to="16" dur="2s" repeatCount="indefinite" />
+    </line>
+    <line x1="150" y1="40" x2="240" y2="70" stroke="#2152CC" stroke-width="2" stroke-dasharray="4 4">
+      <animate attributeName="stroke-dashoffset" from="0" to="16" dur="2s" repeatCount="indefinite" />
+    </line>
+    <line x1="80" y1="150" x2="200" y2="140" stroke="#A239CA" stroke-width="2" stroke-dasharray="4 4">
+      <animate attributeName="stroke-dashoffset" from="0" to="16" dur="2s" repeatCount="indefinite" />
+    </line>
+    <line x1="60" y1="60" x2="80" y2="150" stroke="#0D9B3F" stroke-width="2" stroke-dasharray="4 4">
+      <animate attributeName="stroke-dashoffset" from="0" to="16" dur="2s" repeatCount="indefinite" />
+    </line>
+    <line x1="240" y1="70" x2="200" y2="140" stroke="#2152CC" stroke-width="2" stroke-dasharray="4 4">
+      <animate attributeName="stroke-dashoffset" from="0" to="16" dur="2s" repeatCount="indefinite" />
+    </line>
+    
+    <!-- Pulse Animations -->
+    <circle cx="150" cy="100" r="30" fill="none" stroke="#0D9B3F" stroke-width="2" opacity="0.5">
+      <animate attributeName="r" values="30;50;30" dur="3s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.5;0;0.5" dur="3s" repeatCount="indefinite" />
+    </circle>
+  </g>
+</svg>

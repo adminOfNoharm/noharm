@@ -1,0 +1,10 @@
+<svg width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="75" cy="75" r="30" stroke="currentColor" stroke-width="1"/>
+  <circle cx="75" cy="75" r="50" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4"/>
+  <path d="M75 25L75 125M25 75L125 75" stroke="currentColor" stroke-width="1"/>
+  <circle cx="75" cy="75" r="5" fill="currentColor"/>
+  <circle cx="75" cy="45" r="3" fill="currentColor"/>
+  <circle cx="75" cy="105" r="3" fill="currentColor"/>
+  <circle cx="45" cy="75" r="3" fill="currentColor"/>
+  <circle cx="105" cy="75" r="3" fill="currentColor"/>
+</svg>

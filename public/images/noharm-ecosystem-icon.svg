@@ -1,0 +1,31 @@
+<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="30" cy="30" r="28" fill="white" stroke="#E5E7EB" stroke-width="2" />
+  
+  <!-- Ecosystem Icon -->
+  <circle cx="30" cy="30" r="15" fill="#F3F4F6" />
+  
+  <!-- Green Node -->
+  <circle cx="30" cy="15" r="5" fill="#0D9B3F">
+    <animate attributeName="r" values="5;6;5" dur="2s" repeatCount="indefinite" />
+  </circle>
+  
+  <!-- Blue Node -->
+  <circle cx="17" cy="37.5" r="5" fill="#2152CC">
+    <animate attributeName="r" values="5;6;5" dur="2.5s" repeatCount="indefinite" />
+  </circle>
+  
+  <!-- Purple Node -->
+  <circle cx="43" cy="37.5" r="5" fill="#A239CA">
+    <animate attributeName="r" values="5;6;5" dur="2.2s" repeatCount="indefinite" />
+  </circle>
+  
+  <!-- Connecting Lines -->
+  <line x1="30" y1="15" x2="17" y2="37.5" stroke="#0D9B3F" stroke-width="1.5" />
+  <line x1="17" y1="37.5" x2="43" y2="37.5" stroke="#2152CC" stroke-width="1.5" />
+  <line x1="43" y1="37.5" x2="30" y2="15" stroke="#A239CA" stroke-width="1.5" />
+  
+  <!-- Center Dot -->
+  <circle cx="30" cy="30" r="3" fill="#00A3B4">
+    <animate attributeName="r" values="3;4;3" dur="1.5s" repeatCount="indefinite" />
+  </circle>
+</svg>
