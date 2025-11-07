@@ -231,7 +231,7 @@ function LoginContent() {
               className="h-[40px] w-auto mx-auto mb-3"
             />
             <h1 className="text-2xl font-bold text-white mb-2">
-              {isResetPassword ? "Reset Password" : "Welcome Back"}
+              {isResetPassword ? "Reset Password" : "Welcome"}
             </h1>
             <p className="text-gray-50 font-light text-lg">
               {isResetPassword ? "Enter your email to reset your password" : "Sign in to your account"}
