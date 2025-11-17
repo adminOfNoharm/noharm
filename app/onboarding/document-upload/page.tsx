@@ -695,7 +695,7 @@ function DocumentUploadContent() {
               <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0">
                 <Button
                   variant="outline"
-                  onClick={() => router.push('/onboarding/dashboard')}
+                  onClick={() => router.push('/dashboard')}
                   className="w-full md:w-auto"
                 >
                   <ArrowLeft className="mr-2 h-4 w-4" />
