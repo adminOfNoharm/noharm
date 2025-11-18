@@ -313,7 +313,7 @@ export default function SellerIntakeForm({ onClose, onSubmit }: SellerIntakeForm
               <SelectTrigger>
                 <SelectValue placeholder="YYYY" />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="max-h-64 overflow-y-auto overscroll-contain">
                 {yearOptions.map(year => (
                   <SelectItem key={year} value={year.toString()}>
                     {year}
