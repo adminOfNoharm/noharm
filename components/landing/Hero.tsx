@@ -23,7 +23,7 @@ export default function Hero() {
             >
               <h1 className="text-white text-4xl sm:text-5xl md:text-7xl font-bold">We build trust.</h1>
               <p className="text-[#cbd5e1] text-base sm:text-lg md:text-2xl">Get verified & create planetary health</p>
-              <div className="flex justify-center items-center gap-3 pt-4">
+              <div className="flex justify-center lg:justify-start items-center gap-3 pt-4">
                 <Link href="/onboarding" aria-label="Get started" className="h-11 px-6 md:h-12 md:px-8 rounded-full bg-gradient-to-r from-[#6a36ff] to-[#9c40ff] text-white font-medium flex items-center transition-transform transform-gpu hover:scale-[1.03] hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9c40ff]">
                   Get Started
                   <ArrowRight className="ml-2 h-5 w-5" />
