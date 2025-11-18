@@ -21,6 +21,12 @@ import ContractModal from "@/components/onboarding/ContractModal"
 import SellerIntakeForm from "@/components/forms/SellerIntakeForm"
 import { toast } from "@/components/ui/toast"
 import { LogOut } from 'lucide-react' //For Sign out button
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["300", "600", "800"], // Light, SemiBold & Bold
+});
 
 interface UserData {
   firstName?: string
@@ -653,7 +659,20 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="min-h-screen bg-white/80 backdrop-blur-xl overflow-hidden">
+      {/* Global Spotlight Background */}
+      <div className="dashboard-spotlight" />
+      {/* Moving Hexagon Logo */}
+      <div className="floating-logo">
+        <img src="/images/logo.svg" alt="Logo Glow" />
+      </div>
+      <div className="floating-logo second">
+      <img src="/images/logo.svg" alt="Logo Glow" />
+    </div>
+    <div className="floating-logo third">
+      <img src="/images/logo.svg" alt="Logo Glow" />
+    </div>
+
       {/* Calendly Booking Modal */}
       <CalendlyBookingModal 
         isOpen={calendlyModalOpen} 
@@ -709,12 +728,12 @@ export default function Dashboard() {
         />
       )}
 
-      {/* Beta Banner */}
-      <div className="bg-gradient-to-r from-[#e6f2e6] to-[#d4f4d4] py-2.5 px-4 sm:px-6 text-center font-medium text-[#2e7d32] shadow-sm text-sm sm:text-base">
+      {/* Beta Banner - Removing */} 
+      {/*<div className="bg-gradient-to-r from-[#e6f2e6] to-[#d4f4d4] py-2.5 px-4 sm:px-6 text-center font-medium text-[#2e7d32] shadow-sm text-sm sm:text-base">
         🚀 Beta Preview – Share Your Feedback & Help Shape the Future of Climate Tech
-      </div>
+      </div>*/}
 
-      <div className="flex h-[calc(100vh-48px)]">
+      <div className="flex h-screen">
         {/* Sidebar Overlay for Mobile */}
         {sidebarOpen && (
           <div 
@@ -724,7 +743,7 @@ export default function Dashboard() {
         )}
 
         {/* Sidebar */}
-        <div className={`fixed left-0 top-12 h-[calc(100vh-48px)] w-80 bg-white shadow-2xl z-40 transform transition-transform duration-300 ease-in-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 lg:relative lg:top-0 lg:h-full lg:z-0`}>
+        <div className={`fixed left-0 top-0 h-screen w-80 bg-gradient-to-b from-[#4200fc] to-[#282828] shadow-2xl z-40 transform transition-transform duration-300 ease-in-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 lg:relative lg:top-0 lg:h-full lg:z-0`}>
           <div className="flex flex-col h-full">
             {/* Sidebar Header with Notifications */}
             <div className="p-4 border-b border-gray-200">
@@ -732,7 +751,7 @@ export default function Dashboard() {
                 <Link href="/" className="flex items-center gap-3">
                   <div className="h-12 w-40 relative overflow-hidden">
                     <Image
-                      src="/images/logos/new-logo-blue.png"
+                      src="/images/logos/new-logo.png"
                       alt="NoHarm Logo"
                       fill
                       className="object-contain"
@@ -820,16 +839,16 @@ export default function Dashboard() {
               </div>
 
               {/* User Profile in Sidebar */}
-              <div className="bg-gradient-to-r from-[#f0f8f0] to-[#e6f2e6] rounded-lg p-4">
+              <div className="bg-[#ffffff] rounded-lg p-4">
                 <div className="flex items-center gap-3 mb-3">
                   <Avatar className="h-12 w-12 border-2 border-white shadow-md">
                     <AvatarImage src="/placeholder.svg?height=48&width=48" alt={getUserFullName()} />
-                    <AvatarFallback className="bg-gradient-to-br from-[#00792b] to-[#4caf50] text-white font-bold">{getUserInitials()}</AvatarFallback>
+                    <AvatarFallback className="bg-gradient-to-br from-[#282828] to-[#000000] text-white font-bold">{getUserInitials()}</AvatarFallback>
                   </Avatar>
                   <div className="flex-1">
                     <h3 className="text-sm font-bold text-gray-900">{getUserFullName()}</h3>
                     <p className="text-xs text-gray-600">{getCompanyName()}</p>
-                    <Badge className="mt-1 bg-[#00792b] text-white text-xs">{getUserRoleBadge()}</Badge>
+                    <Badge className="mt-1 bg-gradient-to-r from-gray-500 to-black text-white text-xs">{getUserRoleBadge()}</Badge>
                   </div>
                 </div>
                 {/* Profile Completion Bar - Removing*/}
@@ -847,8 +866,8 @@ export default function Dashboard() {
             <nav className="flex-1 overflow-y-auto p-4 scrollbar-thin scrollbar-track-gray-100 scrollbar-thumb-gray-300 hover:scrollbar-thumb-gray-400">
               <ul className="space-y-1">
                 <li>
-                  <Link href="#" className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-gradient-to-r from-[#e6f2e6] to-[#f0f8f0] text-[#2e7d32] font-semibold text-sm transition-all hover:shadow-sm">
-                    <HomeIcon className="h-4 w-4" />
+                  <Link href="#" className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-[#4200fc] text-white font-semibold text-sm transition-all hover:bg-[#4200fc]">
+                    <HomeIcon className="h-4 w-4 text-white" />
                     <span>Home</span>
                   </Link>
                 </li>
@@ -864,8 +883,8 @@ export default function Dashboard() {
                 {/* Profile Management Link - Only show for sellers */}
                 {userRole === 'seller' && (
                   <li>
-                    <Link href="/profile-management" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-purple-50 text-gray-700 font-semibold text-sm transition-all border border-purple-200">
-                      <UsersIcon className="h-4 w-4 text-purple-600" />
+                    <Link href="/profile-management" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#4200fc] text-white font-semibold text-sm transition-all border-none">
+                      <UsersIcon className="h-4 w-4 text-white" />
                       <span>Profile Management</span>
                     </Link>
                   </li>
@@ -874,15 +893,15 @@ export default function Dashboard() {
                 {/* Your Profile Link - Only show if user has an associated profile */}
                 {userToolProfile && !profileLoading && (
                   <li>
-                    <Link href={`/profilepreviews/${userToolProfile.id}?portal=true`} className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-blue-50 text-gray-700 font-semibold text-sm transition-all border border-blue-200">
-                      <UserIcon className="h-4 w-4 text-blue-600" />
+                    <Link href={`/profilepreviews/${userToolProfile.id}?portal=true`} className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#4200fc] text-white font-semibold text-sm transition-all border-none">
+                      <UserIcon className="h-4 w-4 text-white" />
                       <span>Your Profile</span>
                     </Link>
                   </li>
                 )}
 
                 <li>
-                  <Link href="/marketplace" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-gray-50 text-gray-700 font-semibold text-sm transition-all">
+                  <Link href="/marketplace" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#4200fc] text-white font-semibold text-sm transition-all">
                     <ShoppingCartIcon className="h-4 w-4" />
                     <span>Marketplace</span>
                   </Link>
@@ -893,7 +912,7 @@ export default function Dashboard() {
                 {/* Needs Assessment Link - Only for Sellers/Allies, not Buyers */}
                 {userRole !== 'buyer' && (
                   <li>
-                    <Link href="/needs-identifier" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-gray-50 text-gray-700 font-semibold text-sm transition-all">
+                    <Link href="/needs-identifier" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#4200fc] text-white font-semibold text-sm transition-all">
                       <HelpCircleIcon className="h-4 w-4" />
                       <span>Needs Identifier</span>
                     </Link>
@@ -902,7 +921,7 @@ export default function Dashboard() {
 
                 {/* Onboarding Dashboard Link */}
                 <li>
-                  <Link href="/onboarding/dashboard" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-gray-50 text-gray-700 font-semibold text-sm transition-all">
+                  <Link href="/onboarding/dashboard" className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#4200fc] text-white font-semibold text-sm transition-all">
                     <UserIcon className="h-4 w-4" />
                     <span>Onboarding Dashboard</span>
                   </Link>
@@ -919,7 +938,7 @@ export default function Dashboard() {
                      window.location.href = '/login';
                      }, 100);
                      }}
-                     className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-red-50 text-red-600 font-semibold text-sm transition-all"
+                     className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg hover:text-red-500 text-red-400 font-semibold text-sm transition-all"
                      >
                      <LogOut className="h-4 w-4" />
                      <span>Sign out</span>
@@ -956,7 +975,7 @@ export default function Dashboard() {
         </div>
 
         {/* Mobile Header - Only show menu button on mobile when sidebar is closed */}
-        <div className="lg:hidden fixed top-12 left-0 right-0 z-20 bg-white border-b border-gray-200 px-4 py-3 shadow-sm">
+        <div className="lg:hidden fixed top-0 left-0 right-0 z-20 bg-white border-b border-gray-200 px-4 py-3 shadow-sm">
           <Button
             variant="ghost"
             size="icon"
@@ -975,17 +994,18 @@ export default function Dashboard() {
               <div className="mb-6 2xl:mb-8">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
-                      Welcome back, {userData.firstName ? userData.firstName : 'there'}! 👋
+                    <h1 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#4200fc] to-[#270097] text-transparent bg-clip-text mb-2 font-semibold">
+                      Welcome back, {userData.firstName ? userData.firstName : 'there'}! 
                     </h1>
-                    <p className="text-gray-700 text-base sm:text-lg font-medium">
+                    <p className="text-gray-900 text-base sm:text-lg font-medium">
                       {getCompanyName() !== 'Your Company' 
                         ? `Ready to drive climate impact with ${getCompanyName()}?`
                         : 'Ready to drive climate impact?'
                       }
                     </p>
                   </div>
-                  <div className="hidden sm:flex items-center gap-2">
+                  {/* User Profile Static Icon - Removing */}
+                  {/*<div className="hidden sm:flex items-center gap-2">
                     <div className="text-right">
                       <p className="text-sm font-semibold text-gray-900">{getUserFullName()}</p>
                       <p className="text-sm font-medium text-gray-600">{userData.title || getUserRoleBadge()}</p>
@@ -994,7 +1014,7 @@ export default function Dashboard() {
                       <AvatarImage src="/placeholder.svg?height=40&width=40" alt={getUserFullName()} />
                       <AvatarFallback className="bg-[#00792b] text-white font-semibold">{getUserInitials()}</AvatarFallback>
                     </Avatar>
-                  </div>
+                  </div>*/}
                 </div>
               </div>
 
@@ -1008,7 +1028,7 @@ export default function Dashboard() {
                     // Buyer Dashboard - Contract, Payment, and Intake Form Widgets
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
                       {/* Contract Widget */}
-                      <Card className="shadow-lg border-0 bg-gradient-to-br from-[#1105ff]/10 to-[#1105ff]/20 backdrop-blur-sm h-full">
+                      <Card className="shadow-lg border-0 bg-[#ced8fd] backdrop-blur-sm h-full">
                         <CardContent className="pt-4 pb-4 flex flex-col h-full">
                           <div className="flex items-center justify-between mb-3">
                             <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-[#1105ff] to-[#4c6ef5] flex items-center justify-center shadow-lg">
@@ -1019,13 +1039,13 @@ export default function Dashboard() {
                             <h3 className="text-base font-bold text-gray-900 mb-2">Contract Signing</h3>
                             <p className="text-sm text-gray-600 mb-3">
                               {contractStageStatus === 'completed' 
-                                ? 'Contract signed successfully ✅'
+                                ? 'Contract signed successfully!'
                                 : 'Review and sign your service agreement'
                               }
                             </p>
                             {contractStageStatus !== 'completed' ? (
                               <Button 
-                                className="w-full bg-[#1105ff] hover:bg-[#1105ff]/90 text-white"
+                                className="w-full bg-white/90 hover:bg-gray-100 text-[#3400c9]"
                                 onClick={() => setShowContractModal(true)}
                               >
                                 Sign Contract
@@ -1033,10 +1053,10 @@ export default function Dashboard() {
                             ) : (
                               <Button 
                                 variant="outline"
-                                className="w-full border-green-500 text-green-600 hover:bg-green-50"
+                                className="w-full border-blue-500 text-blue-600 hover:bg-blue-50"
                                 disabled
                               >
-                                Contract Signed ✅
+                                Contract Signed!
                               </Button>
                             )}
                           </div>
@@ -1044,10 +1064,10 @@ export default function Dashboard() {
                       </Card>
 
                       {/* Payment Widget */}
-                      <Card className="shadow-lg border-0 bg-gradient-to-br from-[#00792b]/10 to-[#00792b]/20 backdrop-blur-sm h-full">
+                      <Card className="shadow-lg border-0 bg-[#ced8fd] backdrop-blur-sm h-full">
                         <CardContent className="pt-4 pb-4 flex flex-col h-full">
                           <div className="flex items-center justify-between mb-3">
-                            <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-[#00792b] to-[#4caf50] flex items-center justify-center shadow-lg">
+                            <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-[#1105ff] to-[#4c6ef5] flex items-center justify-center shadow-lg">
                               <DollarSignIcon className="w-5 h-5 text-white" />
                             </div>
                           </div>
@@ -1055,14 +1075,14 @@ export default function Dashboard() {
                             <h3 className="text-base font-bold text-gray-900 mb-2">Payment</h3>
                             <p className="text-sm text-gray-600 mb-3">
                               {paymentStageStatus === 'completed' 
-                                ? 'Payment completed successfully ✅'
+                                ? 'Payment completed successfully!'
                                 : 'Complete your subscription payment'
                               }
                             </p>
                             {paymentStageStatus !== 'completed' ? (
                               <Button 
                                 asChild
-                                className="w-full bg-[#00792b] hover:bg-[#00792b]/90 text-white"
+                                className="w-full bg-white/90 hover:bg-gray-100 text-[#3400c9]"
                                 disabled={contractStageStatus !== 'completed'}
                               >
                                 <Link href="https://buy.stripe.com/00w8wP3BW6ZZef44Rn9sk06" target="_blank">
@@ -1072,10 +1092,10 @@ export default function Dashboard() {
                             ) : (
                               <Button 
                                 variant="outline"
-                                className="w-full border-green-500 text-green-600 hover:bg-green-50"
+                                className="w-full border-blue-500 text-blue-600 hover:bg-blue-50"
                                 disabled
                               >
-                                Payment Complete ✅
+                                Payment Complete!
                               </Button>
                             )}
                           </div>
@@ -1083,10 +1103,10 @@ export default function Dashboard() {
                       </Card>
 
                       {/* Intake Form Widget */}
-                      <Card className="shadow-lg border-0 bg-gradient-to-br from-[#9b00ff]/10 to-[#9b00ff]/20 backdrop-blur-sm h-full">
+                      <Card className="shadow-lg border-0 bg-[#ced8fd] backdrop-blur-sm h-full">
                         <CardContent className="pt-4 pb-4 flex flex-col h-full">
                           <div className="flex items-center justify-between mb-3">
-                            <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-[#9b00ff] to-[#b968c7] flex items-center justify-center shadow-lg">
+                            <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-[#1105ff] to-[#4c6ef5] flex items-center justify-center shadow-lg">
                               <BuildingIcon className="w-5 h-5 text-white" />
                             </div>
                           </div>
@@ -1094,14 +1114,14 @@ export default function Dashboard() {
                             <h3 className="text-base font-bold text-gray-900 mb-2">Real Estate Intake Form</h3>
                             <p className="text-sm text-gray-600 mb-3">
                               {intakeFormStatus === 'completed' 
-                                ? 'Real estate details submitted ✅'
+                                ? 'Real estate details submitted!'
                                 : 'Complete your real estate intake form'
                               }
                             </p>
                             {intakeFormStatus !== 'completed' ? (
                               <Button 
                                 asChild
-                                className="w-full bg-[#9b00ff] hover:bg-[#9b00ff]/90 text-white"
+                                className="w-full bg-white/90 hover:bg-gray-100 text-[#3400c9]"
                               >
                                 <Link href="/onboarding/real-estate-intake">
                                   Start Intake Form
@@ -1110,10 +1130,10 @@ export default function Dashboard() {
                             ) : (
                               <Button 
                                 variant="outline"
-                                className="w-full border-green-500 text-green-600 hover:bg-green-50"
+                                className="w-full border-blue-500 text-blue-600 hover:bg-blue-50"
                                 disabled
                               >
-                                Intake Complete ✅
+                                Intake Complete!
                               </Button>
                             )}
                           </div>
@@ -1126,10 +1146,10 @@ export default function Dashboard() {
                       {/* Task Widgets - Tool Questionnaire, Document Input, and Intake Form */}
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                         {/* Tool Questionnaire Widget */}
-                        <Card className="shadow-lg border-0 bg-gradient-to-br from-[#ff6b35]/10 to-[#ff6b35]/20 backdrop-blur-sm h-full">
+                        <Card className="shadow-lg border-0 bg-white backdrop-blur-sm h-full">
                           <CardContent className="pt-4 pb-4 flex flex-col h-full">
                             <div className="flex items-center justify-between mb-3">
-                              <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-[#ff6b35] to-[#ff8c42] flex items-center justify-center shadow-lg">
+                              <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-[#1105ff] to-[#4c6ef5] flex items-center justify-center shadow-lg">
                                 <HelpCircleIcon className="w-5 h-5 text-white" />
                               </div>
                             </div>
@@ -1137,7 +1157,7 @@ export default function Dashboard() {
                               <h3 className="text-base font-bold text-gray-900 mb-2">Tool Questionnaire</h3>
                               <p className="text-sm text-gray-600 mb-3">
                                 {toolQuestionnaireStatus === 'completed' 
-                                  ? 'Tool questionnaire completed ✅'
+                                  ? 'Tool questionnaire completed!'
                                   : toolQuestionnaireStatus === 'in_progress'
                                   ? 'Continue your tool questionnaire'
                                   : 'Complete your tool questionnaire to tell us about your solution'
@@ -1147,15 +1167,15 @@ export default function Dashboard() {
                                 <div className="space-y-2">
                                   <Button 
                                     variant="outline"
-                                    className="w-full border-green-500 text-green-600 hover:bg-green-50"
+                                    className="w-full border-blue-500 text-blue-600 hover:bg-blue-50"
                                     disabled
                                   >
-                                    Questionnaire Complete ✅
+                                    Questionnaire Complete!
                                   </Button>
                                   <Button 
                                     asChild
                                     variant="outline"
-                                    className="w-full border-gray-300 text-gray-700 hover:bg-gray-50"
+                                    className="w-full bg-[#e1e7fe] border-none text-[#3400c9] hover:bg-[#d7dffd] hover:text-[#3400c9]"
                                   >
                                     <Link href="/onboarding/tool_questionnaire?isEditing=true">
                                       Update Information
@@ -1177,10 +1197,10 @@ export default function Dashboard() {
                         </Card>
 
                         {/* Document Input Widget */}
-                        <Card className="shadow-lg border-0 bg-gradient-to-br from-[#4ecdc4]/10 to-[#4ecdc4]/20 backdrop-blur-sm h-full">
+                        <Card className="shadow-lg border-0 bg-white backdrop-blur-sm h-full">
                           <CardContent className="pt-4 pb-4 flex flex-col h-full">
                             <div className="flex items-center justify-between mb-3">
-                              <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-[#4ecdc4] to-[#26d0ce] flex items-center justify-center shadow-lg">
+                              <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-[#1105ff] to-[#4c6ef5] flex items-center justify-center shadow-lg">
                                 <FileTextIcon className="w-5 h-5 text-white" />
                               </div>
                             </div>
@@ -1188,14 +1208,14 @@ export default function Dashboard() {
                               <h3 className="text-base font-bold text-gray-900 mb-2">Document Upload</h3>
                               <p className="text-sm text-gray-600 mb-3">
                                 {documentInputStatus === 'completed' 
-                                  ? 'Documents uploaded successfully ✅'
+                                  ? 'Documents uploaded successfully!'
                                   : 'Upload required documents to proceed'
                                 }
                               </p>
                               {documentInputStatus !== 'completed' ? (
                                 <Button 
                                   asChild
-                                  className="w-full bg-[#4ecdc4] hover:bg-[#4ecdc4]/90 text-white"
+                                  className="w-full border-none bg-[#e1e7fe] text-[#3400c9] hover:bg-[#d7dffd] hover:text-[#3400c9]"
                                 >
                                   <Link href="/onboarding/document-upload">
                                     Upload Documents
@@ -1205,7 +1225,7 @@ export default function Dashboard() {
                                 <Button 
                                   asChild
                                   variant="outline"
-                                  className="w-full border-green-500 text-green-600 hover:bg-green-50"
+                                  className="w-full border-none bg-[#e1e7fe] text-[#3400c9] hover:bg-[#d7dffd] hover:text-[#3400c9]"
                                 >
                                   <Link href="/onboarding/document-upload">
                                     Manage Documents
@@ -1217,10 +1237,10 @@ export default function Dashboard() {
                         </Card>
 
                         {/* Seller Intake Form Widget */}
-                        <Card className="shadow-lg border-0 bg-gradient-to-br from-[#9b00ff]/10 to-[#9b00ff]/20 backdrop-blur-sm h-full">
+                        <Card className="shadow-lg border-0 bg-white backdrop-blur-sm h-full">
                           <CardContent className="pt-4 pb-4 flex flex-col h-full">
                             <div className="flex items-center justify-between mb-3">
-                              <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-[#9b00ff] to-[#c084fc] flex items-center justify-center shadow-lg">
+                              <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-[#1105ff] to-[#4c6ef5] flex items-center justify-center shadow-lg">
                                 <BuildingIcon className="w-5 h-5 text-white" />
                               </div>
                             </div>
@@ -1228,13 +1248,13 @@ export default function Dashboard() {
                               <h3 className="text-base font-bold text-gray-900 mb-2">Intake Form</h3>
                               <p className="text-sm text-gray-600 mb-3">
                                 {intakeFormStatus === 'completed' 
-                                  ? 'Intake form completed ✅'
+                                  ? 'Intake form completed!'
                                   : 'Complete your company intake form'
                                 }
                               </p>
                               {intakeFormStatus !== 'completed' ? (
                                 <Button 
-                                  className="w-full bg-[#9b00ff] hover:bg-[#9b00ff]/90 text-white"
+                                  className="w-full border-none bg-[#e1e7fe] text-[#3400c9] hover:bg-[#d7dffd] hover:text-[#3400c9]"
                                   onClick={() => setShowIntakeFormModal(true)}
                                 >
                                   Start Intake Form
@@ -1243,7 +1263,7 @@ export default function Dashboard() {
                                 <div className="space-y-2">
                                   <Button 
                                     variant="outline"
-                                    className="w-full border-green-500 text-green-600 hover:bg-green-50"
+                                    className="w-full border-none bg-[#e1e7fe] text-[#3400c9] hover:bg-[#d7dffd] hover:text-[#3400c9]"
                                     onClick={() => setShowIntakeFormModal(true)}
                                   >
                                     Edit Information
@@ -1252,7 +1272,7 @@ export default function Dashboard() {
                                     asChild
                                     variant="outline"
                                     size="sm"
-                                    className="w-full border-blue-500 text-blue-600 hover:bg-blue-50"
+                                    className="w-full border-blue-500 text-blue-600 hover:bg-blue-50 hover:text-blue-600"
                                   >
                                     <Link href="/preview/marketplace">
                                       View Marketplace Preview
@@ -1268,7 +1288,7 @@ export default function Dashboard() {
                       {/* Contract and Payment Widgets - Always show, but disabled until prerequisites are met */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           {/* Contract Widget */}
-                          <Card className="shadow-lg border-0 bg-gradient-to-br from-[#1105ff]/10 to-[#1105ff]/20 backdrop-blur-sm h-full">
+                          <Card className="shadow-lg border-0 bg-white backdrop-blur-sm h-full">
                             <CardContent className="pt-4 pb-4 flex flex-col h-full">
                               <div className="flex items-center justify-between mb-3">
                                 <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-[#1105ff] to-[#4c6ef5] flex items-center justify-center shadow-lg">
@@ -1279,13 +1299,13 @@ export default function Dashboard() {
                                 <h3 className="text-base font-bold text-gray-900 mb-2">Contract Signing</h3>
                                 <p className="text-sm text-gray-600 mb-3">
                                   {contractStageStatus === 'completed' 
-                                    ? 'Contract signed successfully ✅'
+                                    ? 'Contract signed successfully!'
                                     : 'Sign your service agreement to continue'
                                   }
                                 </p>
                                 {contractStageStatus !== 'completed' ? (
                                   <Button 
-                                    className="w-full bg-[#1105ff] hover:bg-[#1105ff]/90 text-white"
+                                    className="w-full border-none bg-[#e1e7fe] text-[#3400c9] hover:bg-[#d7dffd] hover:text-[#3400c9]"
                                     onClick={handleContractClick}
                                   >
                                     Sign Contract
@@ -1293,10 +1313,10 @@ export default function Dashboard() {
                                 ) : (
                                   <Button 
                                     variant="outline"
-                                    className="w-full border-green-500 text-green-600 hover:bg-green-50"
+                                    className="w-full border-blue-500 text-blue-600 hover:bg-blue-50"
                                     disabled
                                   >
-                                    Contract Signed ✅
+                                    Contract Signed!
                                   </Button>
                                 )}
                               </div>
@@ -1304,10 +1324,10 @@ export default function Dashboard() {
                           </Card>
 
                           {/* Payment Widget */}
-                          <Card className="shadow-lg border-0 bg-gradient-to-br from-[#00792b]/10 to-[#00792b]/20 backdrop-blur-sm h-full">
+                          <Card className="shadow-lg border-0 bg-white backdrop-blur-sm h-full">
                             <CardContent className="pt-4 pb-4 flex flex-col h-full">
                               <div className="flex items-center justify-between mb-3">
-                                <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-[#00792b] to-[#4caf50] flex items-center justify-center shadow-lg">
+                                <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-[#1105ff] to-[#4c6ef5] flex items-center justify-center shadow-lg">
                                   <DollarSignIcon className="w-5 h-5 text-white" />
                                 </div>
                               </div>
@@ -1317,13 +1337,13 @@ export default function Dashboard() {
                                 </h3>
                                 <p className="text-sm text-gray-600 mb-3">
                                   {paymentStageStatus === 'completed' 
-                                    ? (profile?.is_trial_enabled ? 'Trial started successfully ✅' : 'Payment completed successfully ✅')
+                                    ? (profile?.is_trial_enabled ? 'Trial started successfully!' : 'Payment completed successfully!')
                                     : (profile?.is_trial_enabled ? 'Start your free trial period' : 'Complete your subscription payment')
                                   }
                                 </p>
                                 {paymentStageStatus !== 'completed' ? (
                                   <Button 
-                                    className="w-full bg-[#00792b] hover:bg-[#00792b]/90 text-white"
+                                    className="w-full border-none bg-[#e1e7fe] text-[#3400c9] hover:bg-[#d7dffd] hover:text-[#3400c9]"
                                     onClick={handlePaymentClick}
                                   >
                                     {profile?.is_trial_enabled ? 'Start Trial' : 'Pay Now'}
@@ -1331,10 +1351,10 @@ export default function Dashboard() {
                                 ) : (
                                   <Button 
                                     variant="outline"
-                                    className="w-full border-green-500 text-green-600 hover:bg-green-50"
+                                    className="w-full border-blue-500 text-blue-600 hover:bg-blue-50"
                                     disabled
                                   >
-                                    {profile?.is_trial_enabled ? 'Trial Started ✅' : 'Payment Complete ✅'}
+                                    {profile?.is_trial_enabled ? 'Trial Started!' : 'Payment Complete!'}
                                   </Button>
                                 )}
                               </div>
@@ -1355,11 +1375,11 @@ export default function Dashboard() {
                           <Draggable draggableId="buyers" index={0}>
                             {(provided) => (
                               <div ref={provided.innerRef} {...provided.draggableProps} className="h-full">
-                                <Card className="shadow-lg border-0 bg-gradient-to-br from-[#1105ff]/10 to-[#1105ff]/20 backdrop-blur-sm group h-full">
+                                <Card className="shadow-lg border-0 bg-[#ced8fd] backdrop-blur-sm group h-full">
                                   <CardContent className="pt-4 pb-4 flex flex-col h-full">
                                     <div className="flex items-center justify-between mb-3">
-                      <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-[#1105ff] to-[#4c6ef5] flex items-center justify-center shadow-lg">
-                        <BuildingIcon className="w-5 h-5 text-white" />
+                      <div className="h-10 w-10 rounded-xl bg-white flex items-center justify-center shadow-lg">
+                        <BuildingIcon className="w-5 h-5 text-[#1105ff]" />
                       </div>
                                       <div {...provided.dragHandleProps} className="opacity-0 group-hover:opacity-100 transition-opacity">
                                         <GripVerticalIcon className="h-5 w-5 text-gray-400" />
@@ -1371,7 +1391,7 @@ export default function Dashboard() {
                                         <p className="text-2xl font-extrabold text-[#1105ff]">1</p>
                       <p className="text-sm font-semibold text-gray-700">active buyers</p>
                                       </div>
-                                      <p className="text-sm font-semibold text-[#1105ff] mt-2">
+                                      <p className="text-sm font-semibold text-[#4100e2] mt-2">
                                         🎯 Highly matched to your profile
                                       </p>
                     </div>
@@ -1384,11 +1404,11 @@ export default function Dashboard() {
                             <Draggable draggableId="connections" index={1}>
                             {(provided) => (
                               <div ref={provided.innerRef} {...provided.draggableProps} className="h-full">
-                                  <Card className="shadow-lg border-0 bg-gradient-to-br from-[#00792b]/10 to-[#00792b]/20 backdrop-blur-sm group h-full">
+                                  <Card className="shadow-lg border-0 bg-[#ced8fd] backdrop-blur-sm group h-full">
                                     <CardContent className="pt-4 pb-4 flex flex-col h-full">
                                     <div className="flex items-center justify-between mb-3">
-                        <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-[#00792b] to-[#4caf50] flex items-center justify-center shadow-lg">
-                          <UsersIcon className="w-5 h-5 text-white" />
+                        <div className="h-10 w-10 rounded-xl bg-white flex items-center justify-center shadow-lg">
+                          <UsersIcon className="w-5 h-5 text-[#1105ff]" />
                                       </div>
                                       <div {...provided.dragHandleProps} className="opacity-0 group-hover:opacity-100 transition-opacity">
                                         <GripVerticalIcon className="h-5 w-5 text-gray-400" />
@@ -1397,10 +1417,10 @@ export default function Dashboard() {
                                       <div className="flex-1">
                                         <h3 className="text-base font-bold text-gray-900 mb-2">Active Connections</h3>
                                       <div className="flex items-baseline gap-2">
-                                          <p className="text-2xl font-extrabold text-[#00792b]">3</p>
+                                          <p className="text-2xl font-extrabold text-[#1105ff]">3</p>
                         <p className="text-sm font-semibold text-gray-700">connections</p>
                                       </div>
-                                        <p className="text-sm font-semibold text-[#00792b] mt-2">
+                                        <p className="text-sm font-semibold text-[#4100e2] mt-2">
                                           📈 +2 from last month
                                         </p>
                     </div>
@@ -1413,11 +1433,11 @@ export default function Dashboard() {
                           <Draggable draggableId="score" index={2}>
                             {(provided) => (
                               <div ref={provided.innerRef} {...provided.draggableProps} className="h-full">
-                                <Card className="shadow-lg border-0 bg-gradient-to-br from-[#00792b]/10 to-[#00792b]/20 backdrop-blur-sm group h-full">
+                                <Card className="shadow-lg border-0 bg-[#ced8fd] backdrop-blur-sm group h-full">
                   <CardContent className="pt-4 pb-4">
                                     <div className="flex items-center justify-between mb-3">
-                                      <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-[#00792b] to-[#4caf50] flex items-center justify-center shadow-lg">
-                                        <TargetIcon className="w-6 h-6 text-white" />
+                                      <div className="h-12 w-12 rounded-xl bg-white flex items-center justify-center shadow-lg">
+                                        <TargetIcon className="w-6 h-6 text-[#1105ff]" />
                                       </div>
                                       <div {...provided.dragHandleProps} className="opacity-0 group-hover:opacity-100 transition-opacity">
                                         <GripVerticalIcon className="h-5 w-5 text-gray-400" />
@@ -1426,14 +1446,14 @@ export default function Dashboard() {
                     <div>
                                       <h3 className="text-lg font-bold text-gray-900 mb-2">NoHarm Score</h3>
                                       <div className="flex items-baseline gap-2">
-                                        <p className="text-3xl font-extrabold text-[#00792b]">85</p>
-                                        <p className="text-base font-semibold text-gray-700">/100</p>
+                                        <p className="text-3xl font-extrabold text-[#1105ff]">85</p>
+                                        <p className="text-base font-semibold text-blue-700">/100</p>
                                       </div>
                                       <div className="mt-2">
-                                        <div className="h-2 w-full bg-[#00792b]/20 rounded-full overflow-hidden">
-                                          <div className="h-full w-[85%] bg-gradient-to-r from-[#00792b] to-[#4caf50] rounded-full"></div>
+                                        <div className="h-2 w-full bg-[#3400c9]/20 rounded-full overflow-hidden">
+                                          <div className="h-full w-[85%] bg-gradient-to-r from-[#3400c9] to-[#4200fc] rounded-full"></div>
                                         </div>
-                                        <p className="text-sm font-semibold text-[#00792b] mt-1">🏆 Top 15% in your region</p>
+                                        <p className="text-sm font-semibold text-[#4100e2] mt-1">🏆 Top 15% in your region</p>
                                       </div>
                     </div>
                   </CardContent>
@@ -1452,23 +1472,23 @@ export default function Dashboard() {
                 {/* Left Column - Active Widgets */}
                 <div className="xl:col-span-7 2xl:col-span-7 space-y-4">
                   {/* Suggested Actions Section */}
-                  <Card className="shadow-sm border border-gray-100 bg-white">
+                  <Card className="shadow-sm border border-none shadow-lg bg-white backdrop-blur-sm">
                     <CardHeader className="pb-3">
                       <CardTitle className="text-lg font-bold text-gray-900 flex items-center gap-2">
-                        <CalendarIcon className="h-5 w-5 text-[#00792b]" />
+                        <CalendarIcon className="h-5 w-5 text-[#4200fc]" />
                         Suggested Actions
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4">
                       {/* Book a Session Button */}
-                      <div className="bg-gradient-to-r from-[#e6f2e6] to-[#f0f8f0] rounded-lg p-4 flex items-center justify-between">
+                      <div className="bg-[#e1e7fe] rounded-lg p-4 flex items-center justify-between">
                         <div>
-                          <h3 className="text-[#2e7d32] font-bold mb-1">Schedule a Meeting</h3>
-                          <p className="text-sm text-gray-600">Get personalized guidance on your climate tech journey</p>
+                          <h3 className="text-[#4100e2] font-bold mb-1">Schedule a Meeting</h3>
+                          <p className="text-sm text-gray-900">Get personalized guidance on your climate tech journey</p>
                         </div>
                         <Button 
                           onClick={() => setCalendlyModalOpen(true)}
-                          className="bg-[#2e7d32] hover:bg-[#1b5e20] text-white font-bold shadow-lg transition-all"
+                          className="bg-[#3400c9] hover:bg-[#4200fc] text-white font-bold shadow-lg transition-all"
                         >
                           <CalendarIcon className="h-4 w-4 mr-2" />
                           Book Meeting
@@ -1477,10 +1497,10 @@ export default function Dashboard() {
 
                       {/* Action Items */}
                       <div className="space-y-2">
-                        <div className="bg-white rounded-lg border border-gray-200 p-3 hover:border-[#00792b] transition-colors">
+                        <div className="bg-white rounded-lg border border-gray-200 p-3 hover:border-gray-200 transition-colors">
                           <div className="flex items-start gap-3">
-                            <div className="h-8 w-8 rounded-lg bg-[#00792b]/10 flex items-center justify-center flex-shrink-0">
-                              <FileTextIcon className="h-4 w-4 text-[#00792b]" />
+                            <div className="h-8 w-8 rounded-lg bg-[#e1e7fe] flex items-center justify-center flex-shrink-0">
+                              <FileTextIcon className="h-4 w-4 text-[#4200fc]" />
                             </div>
                             <div className="flex-1">
                               <h5 className="font-semibold text-gray-900 text-sm">Complete your profile</h5>
@@ -1494,10 +1514,10 @@ export default function Dashboard() {
                           </div>
                         </div>
                         
-                        <div className="bg-white rounded-lg border border-gray-200 p-3 hover:border-[#00792b] transition-colors">
+                        <div className="bg-white rounded-lg border border-gray-200 p-3 hover:border-gray-200 transition-colors">
                           <div className="flex items-start gap-3">
-                            <div className="h-8 w-8 rounded-lg bg-[#00792b]/10 flex items-center justify-center flex-shrink-0">
-                              <UsersIcon className="h-4 w-4 text-[#00792b]" />
+                            <div className="h-8 w-8 rounded-lg bg-[#e1e7fe] flex items-center justify-center flex-shrink-0">
+                              <UsersIcon className="h-4 w-4 text-[#4200fc]" />
                             </div>
                             <div className="flex-1">
                               <h5 className="font-semibold text-gray-900 text-sm">{userRole === "buyer" ? "Connect with sellers" : "Go to Marketplace"}</h5>
@@ -1514,12 +1534,12 @@ export default function Dashboard() {
                     </CardContent>
                   </Card>
 
-                  {/* User Profile Section - Show if profile exists */}
+                  {/* User Profile Section - Show if profile exists */} {/*Check!*/}
                   {userToolProfile && (
-                    <Card className="shadow-lg border-0 bg-gradient-to-r from-[#f0f8f0] to-[#e6f2e6]">
+                    <Card className="shadow-lg border-0 bg-[#e1e7fe] backdrop-blur-sm">
                       <CardHeader className="pb-3">
                         <CardTitle className="text-lg font-bold text-gray-900 flex items-center gap-2">
-                          <UserIcon className="h-5 w-5 text-[#00792b]" />
+                          <UserIcon className="h-5 w-5 text-[#3400c9]" />
                           Your Profile
                         </CardTitle>
                         <CardDescription>
@@ -1546,7 +1566,7 @@ export default function Dashboard() {
                             <p className="text-sm text-gray-600 truncate">
                               {userToolProfile.data?.toolInfo?.category || userToolProfile.data?.companyInfo?.name || 'Your Company Profile'}
                             </p>
-                            <Badge className="mt-1 bg-[#00792b] text-white text-xs capitalize">
+                            <Badge className="mt-1 bg-[#3400c9] text-white text-xs capitalize">
                               {userToolProfile.type} Profile
                             </Badge>
                           </div>
@@ -1562,7 +1582,7 @@ export default function Dashboard() {
 
                         <Button 
                           asChild
-                          className="w-full bg-[#00792b] hover:bg-[#1b5e20] text-white"
+                          className="w-full bg-[#3400c9] hover:bg-[#4200fc] text-white"
                         >
                           <Link 
                             href={`/profilepreviews/${userToolProfile.id}?portal=true`}
@@ -1581,7 +1601,7 @@ export default function Dashboard() {
                       <CardContent className="py-6">
                         <div className="flex items-center justify-center">
                           <div className="flex items-center gap-3">
-                            <div className="h-4 w-4 border-2 border-[#00792b] border-t-transparent rounded-full animate-spin"></div>
+                            <div className="h-4 w-4 border-2 border-[#4200fc] border-t-transparent rounded-full animate-spin"></div>
                             <span className="text-sm text-gray-600">Checking for your profile...</span>
                           </div>
                         </div>
@@ -1593,21 +1613,21 @@ export default function Dashboard() {
                   {userRole !== 'buyer' && needsIdentifierCompleted !== null && (
                     needsIdentifierCompleted ? (
                       // Compact version when completed
-                      <Card className="shadow-sm border border-[#e6f2e6] bg-white">
+                      <Card className="shadow-sm border border-none shadow-lg bg-white backdrop-blur-sm">
                         <CardHeader className="py-3">
                           <div className="flex items-center justify-between">
-                            <CardTitle className="flex items-center gap-2 text-[#2e7d32] text-base font-bold">
-                              <HelpCircleIcon className="h-5 w-5" />
+                            <CardTitle className="flex items-center gap-2 text-gray-900 text-base font-bold">
+                              <HelpCircleIcon className="h-5 w-5 text-[#4200fc]" />
                               Needs Identifier
                             </CardTitle>
-                            <Badge variant="outline" className="bg-[#e6f2e6] text-[#2e7d32]">Completed</Badge>
+                            <Badge variant="outline" className="bg-[#e1e7fe] text-[#4100e2]">Completed</Badge>
                           </div>
                         </CardHeader>
                         <CardContent className="py-2">
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-3">
-                              <div className="h-8 w-8 rounded-lg bg-[#2e7d32]/10 flex items-center justify-center">
-                                <CheckIcon className="h-4 w-4 text-[#2e7d32]" />
+                              <div className="h-8 w-8 rounded-lg bg-[#e1e7fe] flex items-center justify-center">
+                                <CheckIcon className="h-4 w-4 text-[#4200fc]" />
                               </div>
                               <div>
                                 <p className="text-sm font-medium text-gray-900">Your needs have been identified</p>
@@ -1624,10 +1644,10 @@ export default function Dashboard() {
                       </Card>
                     ) : (
                       // Full size version for new users
-                      <Card className="shadow-lg border-0 bg-gradient-to-r from-[#e6f2e6] to-[#f0f8f0]">
+                      <Card className="shadow-lg border-0 bg-white backdrop-blur-sm">
                         <CardHeader>
-                          <CardTitle className="flex items-center gap-2 text-[#2e7d32] text-lg font-bold">
-                            <HelpCircleIcon className="h-6 w-6" />
+                          <CardTitle className="flex items-center gap-2 text-black text-lg font-bold">
+                            <HelpCircleIcon className="h-6 w-6 text-[#4200fc]" />
                             Complete Your Needs Assessment
                           </CardTitle>
                           <CardDescription>
@@ -1637,7 +1657,7 @@ export default function Dashboard() {
                         <CardContent>
                           <div className="space-y-4">
                             <div className="flex items-start gap-4">
-                              <div className="h-8 w-8 rounded-full bg-[#2e7d32] flex items-center justify-center flex-shrink-0">
+                              <div className="h-8 w-8 rounded-full bg-[#3400c9] flex items-center justify-center flex-shrink-0">
                                 <span className="text-white font-bold">1</span>
                               </div>
                               <div>
@@ -1646,7 +1666,7 @@ export default function Dashboard() {
                               </div>
                             </div>
                             <div className="flex items-start gap-4">
-                              <div className="h-8 w-8 rounded-full bg-[#2e7d32] flex items-center justify-center flex-shrink-0">
+                              <div className="h-8 w-8 rounded-full bg-[#3400c9] flex items-center justify-center flex-shrink-0">
                                 <span className="text-white font-bold">2</span>
                               </div>
                               <div>
@@ -1657,7 +1677,7 @@ export default function Dashboard() {
                           </div>
                           <div className="mt-6">
                             <Link href="/needs-identifier">
-                              <Button className="w-full bg-[#2e7d32] hover:bg-[#1b5e20] text-white">
+                              <Button className="w-full bg-[#e1e7fe] hover:bg-[#ced8fd] text-[#3400c9]">
                                 Start Assessment
                               </Button>
                             </Link>
