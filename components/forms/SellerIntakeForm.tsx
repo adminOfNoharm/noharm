@@ -495,8 +495,8 @@ export default function SellerIntakeForm({ onClose, onSubmit }: SellerIntakeForm
             <p className="text-sm text-gray-500">Select regions where you operate</p>
           </div>
 
-          {/* Show Optional Fields Toggle */}
-          <Button
+          {/* Show Optional Fields Toggle - Removing */}
+          {/*<Button
             type="button"
             variant="ghost"
             onClick={() => setShowOptionalFields(!showOptionalFields)}
@@ -513,16 +513,16 @@ export default function SellerIntakeForm({ onClose, onSubmit }: SellerIntakeForm
                 Show optional fields
               </>
             )}
-          </Button>
+          </Button>*/}
 
-          {/* Optional Fields */}
-          {showOptionalFields && (
+          {/* Optional Fields - Removing */}
+          {/*{showOptionalFields && (
             <div className="space-y-4 p-4 bg-gray-50 rounded-lg">
-              <h3 className="font-medium text-gray-900">Optional Information</h3>
+              <h3 className="font-medium text-gray-900">Optional Information</h3>*/}
               {/* Add any optional fields here in the future */}
-              <p className="text-sm text-gray-500">Additional fields can be added here as needed.</p>
+              {/*<p className="text-sm text-gray-500">Additional fields can be added here as needed.</p>
             </div>
-          )}
+          )}*/}
 
           {/* Action Buttons */}
           <div className="flex items-center justify-between pt-6 border-t">
