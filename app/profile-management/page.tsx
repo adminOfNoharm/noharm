@@ -15,6 +15,7 @@ import { toast } from '@/components/ui/toast'
 import { Eye, Edit, Lock, CheckCircle, Clock, AlertCircle, Save, X, ArrowLeft } from 'lucide-react'
 import { Profile0CompanyCard } from '@/components/ui/profile0-company-card'
 import { Profile0Company } from '@/lib/marketplace-utils'
+import { LoadingSpinner } from '@/components/ui/loading-spinner';
 
 interface SellerIntakeForm {
   id: string
@@ -371,7 +372,7 @@ export default function ProfileManagementPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#00792b]"></div>
+        <LoadingSpinner />
       </div>
     )
   }
