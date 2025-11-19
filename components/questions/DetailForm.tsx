@@ -74,12 +74,30 @@ const DetailForm = ({ onChange, initialData = {}, required = true, subtext, fiel
       const countryCode = data[`${field.alias}_countryCode`] || '+1';
       // Only update the number part, keeping the country code
       updatedData[field.alias] = value;
+      updatedData[`${field.alias}_countryCode`] = countryCode; // Preserve country code
       // Combine country code and number for the onChange callback
       const fullNumber = `${countryCode} ${value}`;
-      onChange({ ...updatedData, [field.alias]: fullNumber });
+      // Create output data that includes ALL country codes for phone fields
+      const outputData = { ...updatedData };
+      fields.forEach(f => {
+        if (f.type === 'phone' && f.alias === field.alias) {
+          outputData[f.alias] = fullNumber;
+        }
+      });
+      onChange(outputData);
     } else {
       updatedData[field.alias] = value;
-      onChange(updatedData);
+       // Preserve all country codes when updating non-phone fields
+      const outputData = { ...updatedData };
+      fields.forEach(f => {
+        if (f.type === 'phone' && data[f.alias]) {
+          const phoneCountryCode = data[`${f.alias}_countryCode`] || '+1';
+          const phoneNumber = data[f.alias] || '';
+          outputData[f.alias] = `${phoneCountryCode} ${phoneNumber}`;
+          outputData[`${f.alias}_countryCode`] = phoneCountryCode;
+        }
+      });
+      onChange(outputData);
     }
     
     setData(updatedData);
