@@ -6,7 +6,7 @@ import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { supabase } from "@/lib/supabase"
 import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd'
-
+import { LoadingSpinner } from '@/components/ui/loading-spinner';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -653,7 +653,8 @@ export default function Dashboard() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#00792b]"></div>
+        <LoadingSpinner />
+        {/*<div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#00792b]"></div>*/} {/* Previous Green spinner */}
       </div>
     )
   }

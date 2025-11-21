@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Profile0CompanyCard } from "@/components/ui/profile0-company-card"
 import { MarketplaceHeader } from "@/components/ui/marketplace-header"
 import { fetchProfile0Companies, Profile0Company } from "@/lib/marketplace-utils"
+import { LoadingSpinner } from '@/components/ui/loading-spinner';
 
 export default function Home() {
   const [companies, setCompanies] = useState<Profile0Company[]>([])
@@ -37,7 +38,7 @@ export default function Home() {
         <MarketplaceHeader />
         <div className="container mx-auto px-4 py-8">
           <div className="flex justify-center items-center min-h-[400px]">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#00792b]"></div>
+            <LoadingSpinner />
           </div>
         </div>
       </main>

@@ -29,6 +29,7 @@ import {
   ArrowLeftIcon,
   EditIcon
 } from 'lucide-react';
+import { LoadingSpinner } from '@/components/ui/loading-spinner';
 
 interface FormData {
   // Property Identification
@@ -859,7 +860,7 @@ export default function RealEstateIntakeForm() {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#00792b]"></div>
+        <LoadingSpinner />
       </div>
     );
   }
